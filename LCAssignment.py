@@ -125,5 +125,9 @@ class Model:
         if index<1 or index>5:
             raise Exception("Index should be 1 for Gross Premium, 2 for Net Premium, 3 for E(PVFP), 4 for E(PVFB), 5 for E(PVFE)")
         return age[index]
+    def Grosstable(self):
+        print(f"{'AGE':<3}|{'Gross Premium':<15}|{'NET Premium':<15}|{'E(PVFP)':<15}|{'E(PVFB)':<15}|{'E(PVFE)':<15}")
+        for x in self.grosstable:
+            print(f"{x[0]:0>3}|{x[1]:->12}|{x[2]:->12}|{x[3]:->12}|{x[4]:->12}|{x[5]:->12}")
 answer = Model(0.03,0.0002,1.06,40,100,[130000]*20,[90000]*20,0.05,20,12)
-print(answer.findspecific(50,3))
+answer.Grosstable()
